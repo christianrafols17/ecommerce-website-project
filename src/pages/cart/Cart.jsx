@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Products } from '../../products'
 import { ShopContext } from '../../context/ShopContext'
 import { useNavigate } from 'react-router-dom'
+import EmptyCart from '../../assets/empty-cart.png'
 
 const Cart = () => {
   const { cartItems, addToCart, removeFromCart, updateCartItemAmount, getTotalCartAmount } = useContext(ShopContext)
@@ -9,10 +10,7 @@ const Cart = () => {
 
   const navigate = useNavigate()
   return (
-    <div>
-      <h1>
-        Cart Items
-      </h1>
+    <div className=' pt-24'>
       <div>
         <div className=' flex flex-col w-full h-screen items-center'>
           {Products.map(({ id, productName, productImage, productPrice}) => {
@@ -40,11 +38,16 @@ const Cart = () => {
           <div>
             <p className=' py-4'>Subtotal: {totalAmount} Pesos</p>
             <div>
-              <button className=' bg-orange-400 rounded-md w-40 h-12' onClick={() => navigate('/')}> Continue Shopping </button>
+              <button className=' bg-orange-400 rounded-md w-40 h-12' onClick={() => navigate('/ecommerce-website-project')}> Continue Shopping </button>
               <button className=' bg-orange-400 rounded-md w-40 h-12 ms-4'> Checkout </button>
             </div>
           </div>
-          : <h1> Empty </h1>}
+          : <>
+              <div className=' flex flex-col justify-center items-center w-full h-screen '>
+                <img src={ EmptyCart } alt='Empty Cart' className=' w-24 h-auto' />
+                <h1> Your Cart is Empty </h1>
+              </div>
+            </>}
         </div>
       </div>
     </div>
