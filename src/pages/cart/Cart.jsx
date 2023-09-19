@@ -17,16 +17,16 @@ const Cart = () => {
             
             if (cartItems[id] !== 0) {
               return (
-                <div key={ id } className='w-1/3 border-solid border-2 border-gray-700 rounded-lg my-2'>
+                <div key={ id } className=' w-[300px] md:w-[320px] border-solid border-2 border-gray-700 rounded-lg my-2'>
                   <div className=' flex flex-row m-2'>
                     <img src={ productImage } alt="product-image" className='w-[150px] h-[150px]'/>
-                    <div className=' h-full px-4 my-auto'>
-                      <p> { productName } </p>
-                      <p> Price: { productPrice } Pesos </p>
+                    <div className=' h-full pl-4 my-auto text-sm md:text-base'>
+                      <p className='font-bold'> { productName } </p>
+                      <p className='pb-2'> Price: { productPrice } Pesos </p>
                       <div className=''>
-                        <button className=' border-solid border-2 border-gray-600 rounded-s-md w-8 h-8' onClick={() => removeFromCart(id)}> - </button>
-                        <input className=' border-solid border-2 border-gray-600 w-10 h-8 text-center' value={cartItems[id]} onChange={(e) => updateCartItemAmount(Number(e.target.value), id)} />
-                        <button className=' border-solid border-2 border-gray-600 rounded-e-md w-8 h-8' onClick={() => addToCart(id)}> + </button>
+                        <button className=' border-solid border-2 border-gray-600 rounded-s-md w-6 h-6 md:h-8' onClick={() => removeFromCart(id)}> - </button>
+                        <input className=' border-solid border-2 border-gray-600 w-12 h-6 md:h-8 text-center' value={cartItems[id]} onChange={(e) => updateCartItemAmount(Number(e.target.value), id)} />
+                        <button className=' border-solid border-2 border-gray-600 rounded-e-md w-6 h-6 md:h-8' onClick={() => addToCart(id)}> + </button>
                       </div>
                     </div>
                   </div>
@@ -36,7 +36,7 @@ const Cart = () => {
           })}
           {totalAmount > 0 ? 
           <div>
-            <p className=' py-4'>Subtotal: {totalAmount} Pesos</p>
+            <p className=' py-4 text-center'>Subtotal: {totalAmount} Pesos</p>
             <div>
               <button className=' bg-orange-400 rounded-md w-40 h-12' onClick={() => navigate('/ecommerce-website-project')}> Continue Shopping </button>
               <button className=' bg-orange-400 rounded-md w-40 h-12 ms-4'> Checkout </button>
