@@ -1,12 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Products } from '../../products'
 import { ShopContext } from '../../context/ShopContext'
 import { useNavigate } from 'react-router-dom'
 import EmptyCart from '../../assets/empty-cart.png'
+import Popup from '../../components/Popup'
 
 const Cart = () => {
   const { cartItems, addToCart, removeFromCart, updateCartItemAmount, getTotalCartAmount } = useContext(ShopContext)
   const totalAmount = getTotalCartAmount()
+
+  const [popup, setPopup] = useState(false)
+
+  const togglePopup = () => {
+    setPopup(!popup)
+}
 
   const navigate = useNavigate()
   return (
@@ -39,15 +46,19 @@ const Cart = () => {
             <p className=' py-4 text-center'>Subtotal: {totalAmount} Pesos</p>
             <div>
               <button className=' bg-orange-400 rounded-md w-40 h-12' onClick={() => navigate('/ecommerce-website-project')}> Continue Shopping </button>
-              <button className=' bg-orange-400 rounded-md w-40 h-12 ms-4'> Checkout </button>
+              <button className=' bg-orange-400 rounded-md w-40 h-12 ms-4' onClick={togglePopup}> Checkout </button>
             </div>
           </div>
-          : <>
-              <div className=' flex flex-col justify-center items-center w-full h-screen '>
-                <img src={ EmptyCart } alt='Empty Cart' className=' w-24 h-auto' />
-                <h1> Your Cart is Empty </h1>
-              </div>
-            </>}
+          : 
+          <>
+            <div className=' flex flex-col justify-center items-center w-full h-screen '>
+              <img src={ EmptyCart } alt='Empty Cart' className=' w-24 h-auto' />
+              <h1> Your Cart is Empty </h1>
+            </div>
+          </>}
+          {popup && (
+            <Popup togglePopup={togglePopup}/>
+          )}
         </div>
       </div>
     </div>
