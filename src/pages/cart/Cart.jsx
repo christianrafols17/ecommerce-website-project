@@ -6,8 +6,8 @@ import EmptyCart from '../../assets/empty-cart.png'
 import Popup from '../../components/Popup'
 
 const Cart = () => {
-  const { cartItems, addToCart, removeFromCart, updateCartItemAmount, getTotalCartAmount } = useContext(ShopContext)
-  const totalAmount = getTotalCartAmount()
+  const { cartItems, addToCart, removeFromCart, updateCartItemAmount, getTotalCartAmount, clearCart } = useContext(ShopContext)
+  let totalAmount = getTotalCartAmount()
 
   const [popup, setPopup] = useState(false)
 
@@ -45,8 +45,8 @@ const Cart = () => {
           <div>
             <p className=' py-4 text-center'>Subtotal: {totalAmount} Pesos</p>
             <div>
-              <button className=' bg-orange-400 rounded-md w-40 h-12' onClick={() => navigate('/ecommerce-website-project')}> Continue Shopping </button>
-              <button className=' bg-orange-400 rounded-md w-40 h-12 ms-4' onClick={togglePopup}> Checkout </button>
+              <button className=' bg-orange-400 rounded-md w-40 h-12' onClick={cartItems}> Continue Shopping </button>
+              <button className=' bg-orange-400 rounded-md w-40 h-12 ms-4' onClick={() => { togglePopup(); clearCart(); }}> Checkout </button>
             </div>
           </div>
           : 
