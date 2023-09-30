@@ -6,6 +6,7 @@ import Powder from './assets/powder.jpg'
 import RaspberryGlaze from './assets/raspberry-glaze.jpg'
 import StrawberrySprinkle from './assets/strawberry-sprinkle.jpg'
 import VanillaSprinkle from './assets/vanilla-sprinkle.jpg'
+import CinnamonDonut from './assets/cinnamon-donut.jpg'
 
 export const Products = [
     {
@@ -55,5 +56,11 @@ export const Products = [
         productName: 'Blueberry Glaze',
         productPrice: 25.00,
         productImage: BlueberryGlaze
+    },
+    {
+        id: 9,
+        productName: 'Cinnamon Sugar Donut',
+        productPrice: 20.00,
+        productImage: CinnamonDonut
     }
 ]

@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Products } from '../../products'
 import { ShopContext } from '../../context/ShopContext'
 import { useNavigate } from 'react-router-dom'
@@ -45,7 +46,9 @@ const Cart = () => {
           <div>
             <p className=' py-4 text-center'>Subtotal: {totalAmount} Pesos</p>
             <div>
-              <button className=' bg-orange-400 rounded-md w-40 h-12' onClick={cartItems}> Continue Shopping </button>
+              <Link to='/ecommerce-website-project/'>
+                <button className=' bg-orange-400 rounded-md w-40 h-12'> Continue Shopping </button>
+              </Link>
               <button className=' bg-orange-400 rounded-md w-40 h-12 ms-4' onClick={() => { togglePopup(); clearCart(); }}> Checkout </button>
             </div>
           </div>
