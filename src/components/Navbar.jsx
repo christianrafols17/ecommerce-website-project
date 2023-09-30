@@ -20,7 +20,11 @@ const Navbar = () => {
                     </Link>
                     <Link to='/ecommerce-website-project/cart' className=' flex items-center text-xl hover:animate-pulse cursor-pointer hover:text-yellow-500'> <AiOutlineShoppingCart size={24} className=' w-12' /> 
                         <span className='hidden md:flex '>Cart</span>
-                        <span className='bg-red-600 text-sm md:ms-2 px-2 rounded-full'>{ itemQuantity > 0 && <>{ itemQuantity }</> }</span> 
+                        {itemQuantity > 0 && (
+                            <span className="bg-red-600 text-sm md:ms-2 px-2 rounded-full">
+                                {itemQuantity}
+                            </span>
+                        )} 
                     </Link>
                 </div>
             </div>
