@@ -5,6 +5,7 @@ import { ShopContext } from '../../context/ShopContext'
 import { useNavigate } from 'react-router-dom'
 import EmptyCart from '../../assets/empty-cart.png'
 import Popup from '../../components/Popup'
+import { motion } from 'framer-motion'
 
 const Cart = () => {
   const { cartItems, addToCart, removeFromCart, updateCartItemAmount, getTotalCartAmount, clearCart } = useContext(ShopContext)
@@ -18,7 +19,7 @@ const Cart = () => {
 
   const navigate = useNavigate()
   return (
-    <div className=' pt-24'>
+    <motion.div initial={{ x: "100%" }} animate={{ x: "0%" }} transition={{ duration: 1, ease: "easeOut" }} className=' pt-24'>
       <div>
         <div className=' flex flex-col w-full h-screen items-center'>
           {Products.map(({ id, productName, productImage, productPrice}) => {
@@ -64,7 +65,7 @@ const Cart = () => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
