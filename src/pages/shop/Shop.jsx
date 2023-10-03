@@ -2,12 +2,13 @@ import React, { useContext } from 'react'
 import { Products } from '../../products'
 import { ShopContext } from '../../context/ShopContext'
 import Home from '../../components/Home'
+import { motion } from 'framer-motion'
 
 const Shop = () => {
   const { addToCart, cartItems } = useContext(ShopContext)
   
   return (
-    <div className='Shop'>
+    <motion.div exit={{ opacity: 0.75 }} initial={{  x: "-100%" }} animate={{ x: "0%",  }} transition={{ duration: 0.75, ease: "easeOut" }} className='Shop'>
       <Home />
       <div id='product-section' className=' bg-gradient-to-b from-white via-white to-purple-900 h-full'>
         <h1 className='text-3xl md:text-4xl font-semibold text-center mb-8 py-4 bg-yellow-400 rounded-full mx-10 '>Products</h1>
@@ -29,7 +30,7 @@ const Shop = () => {
         )})}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

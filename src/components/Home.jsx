@@ -1,6 +1,6 @@
 import React from 'react'
 import HeroImage from '../assets/hero-donut.png'
-import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 import { BsArrowRightCircleFill } from 'react-icons/bs'
 
 const Home = () => {
