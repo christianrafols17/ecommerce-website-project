@@ -1,21 +1,14 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Shop from './pages/shop/Shop'
-import Cart from './pages/cart/Cart'
+import { BrowserRouter} from 'react-router-dom'
+import AnimatedRoutes from './components/AnimatedRoutes'
 import ShopContextProvider from './context/ShopContext'
-import { AnimatePresence } from 'framer-motion'
 
-function App() {
+const App = () => {
   return (
       <div className='Shoping App'>
         <ShopContextProvider>
-          <Router>
-            <Navbar />
-            <Routes>
-                <Route path='/ecommerce-website-project/' element={<Shop />}/>
-                <Route path='/ecommerce-website-project/cart' element={<Cart />}/>
-            </Routes>
-          </Router>
+          <BrowserRouter>
+            <AnimatedRoutes />
+          </BrowserRouter>
         </ShopContextProvider>
       </div>
   )

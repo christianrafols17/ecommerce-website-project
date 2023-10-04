@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Products } from '../../products'
 import { ShopContext } from '../../context/ShopContext'
-import { useNavigate } from 'react-router-dom'
 import EmptyCart from '../../assets/empty-cart.png'
 import Popup from '../../components/Popup'
 import { motion } from 'framer-motion'
@@ -21,10 +20,14 @@ const Cart = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const pageMotion = {
+    initial: { opacity: 0, },
+    animate: { opacity: 1, transition: { duration: 0.5 } },
+    exit: { opacity: 0, transition: { duration: 0.5 } }
+  };
 
-  const navigate = useNavigate()
   return (
-    <motion.div initial={{  x: "100%" }} animate={{ x: "0%",  }} transition={{ duration: 0.75, ease: "easeOut" }} className=''>
+    <motion.div initial="initial" animate="animate" exit="exit" variants={ pageMotion } className=''>
       <div className=' flex flex-col w-full h-screen items-center bg-gradient-to-b from-purple-900 via-white  to-white pt-24'>
         {Products.map(({ id, productName, productImage, productPrice}) => {
           
@@ -32,13 +35,13 @@ const Cart = () => {
             return (
               <div key={ id } className=' w-[300px] md:w-[320px] border-solid border-2 border-gray-700 rounded-lg my-2'>
                 <div className=' flex flex-row m-2'>
-                  <img src={ productImage } alt="product-image" className='w-[150px] h-[150px]'/>
+                  <img src={ productImage } alt="product-image" className='w-[150px] h-[150px] rounded-md'/>
                   <div className=' h-full pl-4 my-auto text-sm md:text-base'>
                     <p className='font-bold'> { productName } </p>
                     <p className='pb-2'> Price: { productPrice } Pesos </p>
                     <div className=''>
                       <button className=' border-solid border-2 border-gray-600 rounded-s-md w-6 h-6 md:h-8' onClick={() => removeFromCart(id)}> - </button>
-                      <input className=' border-solid border-2 border-gray-600 w-12 h-6 md:h-8 text-center' value={cartItems[id]} onChange={(e) => updateCartItemAmount(Number(e.target.value), id)} />
+                      <input className=' border-solid border-2 border-gray-600 w-12 h-6 md:h-8 text-center bg-transparent' value={cartItems[id]} onChange={(e) => updateCartItemAmount(Number(e.target.value), id)} />
                       <button className=' border-solid border-2 border-gray-600 rounded-e-md w-6 h-6 md:h-8' onClick={() => addToCart(id)}> + </button>
                     </div>
                   </div>
