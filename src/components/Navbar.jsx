@@ -15,10 +15,12 @@ const Navbar = () => {
                     Donut Factory
                 </h1>
                 <div className='flex items-center justify-end '>
-                    <Link to='/ecommerce-website-project/' className=' flex items-center text-xl hover:animate-pulse cursor-pointer hover:text-yellow-500'> <AiFillShop size={24} className=' w-12' />
+                    <Link to='/ecommerce-website-project/' className=' flex items-center text-xl hover:animate-pulse cursor-pointer hover:text-yellow-500'> 
+                        <AiFillShop size={24} className=' w-12' />
                         <span className='hidden md:flex'>Shop</span>  
                     </Link>
-                    <Link to='/ecommerce-website-project/cart' className=' flex items-center text-xl hover:animate-pulse cursor-pointer hover:text-yellow-500'> <AiOutlineShoppingCart size={24} className=' w-12' /> 
+                    <Link to='/ecommerce-website-project/cart' className=' flex items-center text-xl hover:animate-pulse cursor-pointer hover:text-yellow-500'> 
+                        <AiOutlineShoppingCart size={24} className=' w-12' /> 
                         <span className='hidden md:flex '>Cart</span>
                         {itemQuantity > 0 && (
                             <span className="bg-red-600 text-sm md:ms-2 px-2 rounded-full">

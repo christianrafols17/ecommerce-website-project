@@ -55,9 +55,9 @@ const Cart = () => {
           <p className=' py-4 text-center'>Subtotal: {totalAmount} Pesos</p>
           <div>
             <Link to='/ecommerce-website-project/'>
-              <button className=' bg-orange-400 rounded-md w-40 h-12'> Continue Shopping </button>
+              <button className='text-white bg-gradient-to-r from-purple-800 to-orange-400 rounded-md w-40 h-12'> Continue Shopping </button>
             </Link>
-            <button className=' bg-orange-400 rounded-md w-40 h-12 ms-4' onClick={() => { togglePopup(); clearCart(); }}> Checkout </button>
+            <button className='text-white bg-gradient-to-r from-purple-800 to-orange-400 rounded-md w-40 h-12 ms-4' onClick={() => { togglePopup(); clearCart(); }}> Checkout </button>
           </div>
         </div>
         : 

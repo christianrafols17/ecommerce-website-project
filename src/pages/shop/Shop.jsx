@@ -30,7 +30,7 @@ const Shop = () => {
                   <p className=' text-sm md:text-base'> Price: { productPrice } Pesos </p>
                 </div>
                 <div className=' flex justify-center pb-2'>
-                  <button className=' bg-orange-400 rounded-lg w-36 md:w-40 h-10 hover:scale-105 duration-150 text-white bg-gradient-to-r from-purple-800 to-orange-400' onClick={() => addToCart(id)}>Add to Cart {cartItemsAmount > 0 && <>({cartItemsAmount})</>} </button>
+                  <button className='rounded-lg w-36 md:w-40 h-10 hover:scale-105 duration-150 text-white bg-gradient-to-r from-purple-800 to-orange-400' onClick={() => addToCart(id)}>Add to Cart {cartItemsAmount > 0 && <>({cartItemsAmount})</>} </button>
                 </div>
             </div>
         )})}
